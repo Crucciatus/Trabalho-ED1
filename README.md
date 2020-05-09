@@ -4,6 +4,8 @@
 
 **Problema** - Elabore uma programa em C para implementar uma Agenda Eletrônica dos alunos da UEG. Serão armazenados os seguintes dados de cada aluno: Matricula, Nome, Telefone, e-mail, curso, disciplinas e outros que acharem necessários. A Agenda deverá ser implementada através de uma Lista Encadeada. Como um aluno pode ter vários telefones e disciplinas, estes campos também devem ser implementados como uma Lista cada. Colocar todas as funções de manipulação da lista (criar, incluir, excluir, buscar, listar); Trabalhar através de menu. 
 
+---
+
 ## Glossário
 
 |Termo| Descrição |
@@ -11,6 +13,8 @@
 | Incluir | Adicionar a instância de alguma entidade em uma lista  |
 | Alocar | usar função malloc |
 | Destruir | usar função free |
+
+---
 
 ## Requisitos funcionais
 
@@ -22,6 +26,8 @@
 | Manipular aluno | Criar, incluir, excluir e buscar  |
 | Manipular aluno-telefone | Criar, incluir, excluir e buscar  |
 | Manipular aluno-disciplina | Criar, incluir, excluir e buscar  |
+
+---
 
 ## Requisitos não funcionais
 
@@ -35,6 +41,7 @@
 | Alocar disciplina | Retornar uma referência de disciplina para ser **incluída** em um aluno |
 | Destruir disciplina, telefone, aluno e agenda |
 
+---
 
 ## Entidades
 
@@ -79,7 +86,11 @@ O telefone é uma estrutura com  DDD e número.
 |Campo| Tipo |
 |--|--|
 | Nome da disciplina | String |
- 
+
+--- 
+
  ## Regras de negócio
 
 A definir com o @Cruciatus
+
+---
