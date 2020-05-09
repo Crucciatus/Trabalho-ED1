@@ -1,6 +1,6 @@
 
 
-# Trabalho de estrutura de dados 1
+# 🔥 Trabalho de estrutura de dados 1
 
 **Problema** - Elabore uma programa em C para implementar uma Agenda Eletrônica dos alunos da UEG. Serão armazenados os seguintes dados de cada aluno: Matricula, Nome, Telefone, e-mail, curso, disciplinas e outros que acharem necessários. A Agenda deverá ser implementada através de uma Lista Encadeada. Como um aluno pode ter vários telefones e disciplinas, estes campos também devem ser implementados como uma Lista cada. Colocar todas as funções de manipulação da lista (criar, incluir, excluir, buscar, listar); Trabalhar através de menu. 
 
@@ -47,7 +47,7 @@
 
 > Sinta-se a vontade para alterar tudo
 
-### Agenda
+### 📅 Agenda 
 
 Na estrutura agenda é onde a manipulação de cada __aluno__ pode ser feita.
 Os alunos vão estar contidos dentro da estrutura que representa uma __agenda__. 
@@ -60,7 +60,7 @@ Os alunos vão estar contidos dentro da estrutura que representa uma __agenda__.
 
 > Uma agenda tem um ou muitos alunos
 
-### Aluno
+### 🧑‍🎓 Aluno 
 
 O aluno é a entidade principal, as operações vão ser feitas alterando a estrutura aluno.  
 
@@ -75,13 +75,13 @@ O aluno é a entidade principal, as operações vão ser feitas alterando a estr
 * Um aluno pode ter um ou vários números de telefone.
 * Um aluno pode estar matriculado em uma ou mais disciplinas.
 
-### Telefone
+### 📱 Telefone
 
 O telefone é uma estrutura com  DDD e número.
 * Deve ser possível incluir um novo número
 * Deve ser possível retornar um número aplicando a seguinte mascara: (DDD) 9-9999-9999
 
-### Disciplina
+### 📚 Disciplina
 
 |Campo| Tipo |
 |--|--|
