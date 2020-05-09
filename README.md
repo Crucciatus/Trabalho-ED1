@@ -13,9 +13,9 @@
  1. Arquivo de implementação ".c" e arquivo de interface ".h"
  2. Padrão de nome de variáveis: **camelCase**
  3. Padrão para nome de funções: 
-	 3.1. Função de criação: **create_nomeEntidade**
-	 3.2 Função de destruição: **destruct_nomeEntidade**
-	 3.3 Função da entidade especifica:  **nomeEntidade_nomeFunção**, ex: aluno_inserirNumero
+	- 3.1. Função de criação: **create_nomeEntidade**
+	- 3.2 Função de destruição: **destruct_nomeEntidade**
+	- 3.3 Função da entidade especifica:  **nomeEntidade_nomeFunção**, ex: aluno_inserirNumero
 4. Espaçamento de 2
 5. Nunca alterar o mesmo arquivo para não dar conflito na hora de mesclar.
 6. Sempre informar o que está alterando e fazendo
