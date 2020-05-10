@@ -22,7 +22,6 @@
 7. Sempre solicitar revisão do código (ambos)
 8. Só mesclar códigos revisados por todos.
  
-
 ---
 
 ## Glossário
@@ -66,10 +65,10 @@
 
 > Sinta-se a vontade para alterar tudo
 
-### 📅 Agenda 
+### 📅 Agenda
 
 Na estrutura agenda é onde a manipulação de cada __aluno__ pode ser feita.
-Os alunos vão estar contidos dentro da estrutura que representa uma __agenda__. 
+Os alunos vão estar contidos dentro da estrutura que representa uma __agenda__.
 * Deve ser possível alterar os dados de um aluno.
 * Deve ser possível excluir um aluno especifico.
 * Deve ser possível incluir um novo aluno novo.
