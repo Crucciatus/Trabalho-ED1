@@ -62,6 +62,10 @@ const char* student_getEmail(Student student) {
 
 char* student_toString(Student student) {
 
+  if(isNull(student)) {
+    return NULL;
+  }
+
   char *str = malloc(sizeof(char) * 120);
   strcpy(str, "Students [ ");
   // TODO: Converter o registro inteiro para string

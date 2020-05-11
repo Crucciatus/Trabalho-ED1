@@ -74,6 +74,26 @@ Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) 
   return NULL;
 }
 
+Student listStudent_getStudentByEmail(ListStudent listStudent, const char* email) {
+
+  if(isNull(listStudent)) {
+    return NULL;
+  }
+
+  ListStudent node = listStudent->next;
+
+  while(!isNull(node)) {
+    if(strcmp(student_getEmail(node->student), email) == 0) {
+      Student student = new_Students(student_getRegistry(node->student), student_getName(node->student), email);
+      return student;
+      
+    }
+    node = node->next;
+  }
+
+  return NULL;
+}
+
 void listStudent_toPrint(ListStudent listStudent) {
   if(isNull(listStudent)) {
     printf("[ ]");
