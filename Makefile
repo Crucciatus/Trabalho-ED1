@@ -14,7 +14,7 @@ PROJECT_NAME = program
 CC = gcc
 
 # FLAGS
-CFLAGS = -c -lm
+CFLAGS = -c -lm -g
 
 # Arquivos fontes
 SRC = $(wildcard ./src/*.c)
