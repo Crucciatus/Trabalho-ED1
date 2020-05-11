@@ -2,6 +2,7 @@
 
 struct LIST_STUDENT {
   // Student student;
+  int a;
   struct LIST_STUDENT *next;
 };
 
@@ -18,19 +19,53 @@ ListStudent new_ListStudent() {
     return NULL;
   }
 
+  listStudent->a = -1;
   listStudent->next = NULL;
 
   return listStudent;
 }
 
 void destruct_ListStudent(ListStudent listStudent) {
-  ListStudent headList = listStudent->next;
+  ListStudent node = listStudent->next;
 
-  while(!isNull(headList)) {
-    ListStudent aux = headList;
-    free(headList);
-    headList = aux->next;
+  while(!isNull(node)) {
+    ListStudent aux = node->next;
+    free(node);
+    node = aux;
   }
 
   free(listStudent);
+}
+
+ListStudent listStudent_add(ListStudent listStudent, int a) {
+
+  if(isNull(listStudent))
+    return listStudent;
+  
+  ListStudent node = listStudent->next;
+
+  ListStudent newNode = new_ListStudent();
+  newNode->a = a;
+
+  newNode->next = node;
+  listStudent->next = newNode;
+
+  return listStudent;
+
+}
+
+void listStudent_toPrint(ListStudent listStudent) {
+  if(isNull(listStudent)) {
+    printf("[ ]");
+    return;
+  }
+
+  ListStudent node = listStudent->next;
+
+  printf("List Student: [ ");
+  while(!isNull(node->next)) {
+    printf("%d, ", node->a);
+    node = node->next;
+  }
+  printf("%d ]\n", node->a);
 }
