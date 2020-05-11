@@ -12,11 +12,14 @@ int main(void) {
   listStudent_add(listStudent, new_Students(2, "Gabriela Alves", "gabi@ngmail.com"));
 
   // Student student = new_Students(2, "Gabriela Alves", "gabi@ngmail.com");
+  Student student = listStudent_getStudentByRegistry(listStudent, 2);
+  printf("Estudante encontrado: %s\n", student_toString(student));
 
   // printf("%s\n", student_toString(student));
-  listStudent_toPrint(listStudent);
+  // listStudent_toPrint(listStudent);
 
   destruct_ListStudent(listStudent);
-  // destruct_Student(student);
+  destruct_Student(student);
+
   return EXIT_SUCCESS;
 }

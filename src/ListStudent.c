@@ -54,6 +54,26 @@ ListStudent listStudent_add(ListStudent listStudent, Student student) {
 
 }
 
+Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) {
+
+  if(isNull(listStudent)) {
+    return NULL;
+  }
+
+  ListStudent node = listStudent->next;
+
+  while(!isNull(node)) {
+    if(student_getRegistry(node->student) == registry) {
+      Student student = new_Students(registry, student_getName(node->student), student_getEmail(node->student));
+      return student;
+      
+    }
+    node = node->next;
+  }
+
+  return NULL;
+}
+
 void listStudent_toPrint(ListStudent listStudent) {
   if(isNull(listStudent)) {
     printf("[ ]");

@@ -33,10 +33,36 @@ void destruct_ListStudent(ListStudent listStudent);
 ListStudent listStudent_add(ListStudent listStudent, Student student);
 
 /**
+ * Remove um <Student> da <ListStudent>
+ * @param listStudent <ListStudent>
+ * @param student <Student>
+ * @return <ListStudent>
+ * 
+*/
+ListStudent listStudent_remove(ListStudent listStudent, Student student);
+
+/**
+ * Retorna uma instância de um studante passado o seu registro
+ * @param listStudent <ListStudent>
+ * @param registry <Student->registry int>
+ * @return <Student>
+ * 
+*/
+Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry);
+
+/**
+ * Retorna uma instância de um studante passado o seu email
+ * @param listStudent <ListStudent>
+ * @param email <Student->email string>
+ * @return <Student>
+ * 
+*/
+Student listStudent_getStudentByEmail(ListStudent listStudent, const char* email);
+
+/**
  * Imprime os elementos contidos dentro da lista
  * @param listStudent
 */
 void listStudent_toPrint(ListStudent listStudent);
-
 
 #endif
