@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include "Student.h"
+
 // Tipos definidos:
 typedef struct LIST_STUDENT *ListStudent;
 
@@ -22,8 +24,18 @@ ListStudent new_ListStudent();
 */
 void destruct_ListStudent(ListStudent listStudent);
 
-ListStudent listStudent_add(ListStudent listStudent, int a);
+/**
+ * Adciona um novo <Student> a <ListStudent>
+ * @param listStudent <ListStudent>
+ * @param student <Student>
+ * @return <ListStudent>
+*/
+ListStudent listStudent_add(ListStudent listStudent, Student student);
 
+/**
+ * Imprime os elementos contidos dentro da lista
+ * @param listStudent
+*/
 void listStudent_toPrint(ListStudent listStudent);
 
 

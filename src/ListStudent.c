@@ -1,12 +1,11 @@
 #include "../libs/ListStudent.h"
 
 struct LIST_STUDENT {
-  // Student student;
-  int a;
+  Student student;
   struct LIST_STUDENT *next;
 };
 
-bool isNull(ListStudent listStudent) {
+static bool isNull(ListStudent listStudent) {
   return listStudent == NULL;
 }
 
@@ -18,8 +17,8 @@ ListStudent new_ListStudent() {
     // Emite um erro
     return NULL;
   }
-
-  listStudent->a = -1;
+  
+  listStudent->student = NULL;
   listStudent->next = NULL;
 
   return listStudent;
@@ -30,6 +29,7 @@ void destruct_ListStudent(ListStudent listStudent) {
 
   while(!isNull(node)) {
     ListStudent aux = node->next;
+    destruct_Student(node->student);
     free(node);
     node = aux;
   }
@@ -37,7 +37,7 @@ void destruct_ListStudent(ListStudent listStudent) {
   free(listStudent);
 }
 
-ListStudent listStudent_add(ListStudent listStudent, int a) {
+ListStudent listStudent_add(ListStudent listStudent, Student student) {
 
   if(isNull(listStudent))
     return listStudent;
@@ -45,7 +45,7 @@ ListStudent listStudent_add(ListStudent listStudent, int a) {
   ListStudent node = listStudent->next;
 
   ListStudent newNode = new_ListStudent();
-  newNode->a = a;
+  newNode->student = student;
 
   newNode->next = node;
   listStudent->next = newNode;
@@ -62,10 +62,10 @@ void listStudent_toPrint(ListStudent listStudent) {
 
   ListStudent node = listStudent->next;
 
-  printf("List Student: [ ");
+  printf("List Student: { \n");
   while(!isNull(node->next)) {
-    printf("%d, ", node->a);
+    printf("%s, \n", student_toString(node->student));
     node = node->next;
   }
-  printf("%d ]\n", node->a);
+  printf("%s }\n", student_toString(node->student));
 }

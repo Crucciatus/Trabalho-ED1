@@ -59,3 +59,17 @@ const char* student_getEmail(Student student) {
 
   return student->email;
 }
+
+char* student_toString(Student student) {
+
+  char *str = malloc(sizeof(char) * 120);
+  strcpy(str, "Students [ ");
+  // TODO: Converter o registro inteiro para string
+  // strcat(str, student_getRegistry(student)));
+  // strcat(str, ", ");
+  strcat(str, student_getName(student));
+  strcat(str, ", ");
+  strcat(str, student_getEmail(student));
+  strcat(str, " ]\0");
+  return str;
+}

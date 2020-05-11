@@ -29,4 +29,11 @@ const char* student_getName(Student student);
 
 const char* student_getEmail(Student student);
 
+/**
+ * Retorna os campos do <Student> em forma de string
+ * @param student <Student>
+ * @return <String>
+*/
+char* student_toString(Student student);
+
 #endif
