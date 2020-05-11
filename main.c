@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+<<<<<<< HEAD
 #include "libs/ListStudent.h"
 
 int main(void) {
@@ -15,5 +16,10 @@ int main(void) {
 
   destruct_ListStudent(listStudent);
 
+=======
+#include "./libs/Student.h"
+
+int main(void) {
+>>>>>>> master
   return EXIT_SUCCESS;
 }
