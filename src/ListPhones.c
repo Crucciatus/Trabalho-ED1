@@ -55,5 +55,48 @@ ListPhones listPhones_add(ListPhones listPhones, const char* phone) {
   return listPhones;
 }
 
+ListPhones listPhones_search(ListPhones listPhones, const char* phone) {
+  
+  if(isNull(listPhones)) {
+    return NULL;
+  }
+
+  ListPhones node = listPhones->next;
+
+  while(!isNull(node)) {
+
+    if(!strcmp(node->phone, phone))
+      return node;
+    else 
+      node = node->next;
+  }
+
+  return NULL;
+}
+
+void listPhones_remove(ListPhones listPhones, const char* phone) {
+
+  if(isNull(listPhones)) {
+    return;
+  }
+
+  ListPhones verifyPhone = listPhones_search(listPhones, phone);
+  ListPhones node = listPhones->next;
+  
+  if(verifyPhone != NULL) {
+    while(!isNull(node)) {
+
+      if(node == verifyPhone) {
+        node = verifyPhone->next;   //erro de memória
+        free(verifyPhone);
+        return;
+      }
+    
+      node = node->next;
+    }
+  }
+
+  return;
+}
 
 
