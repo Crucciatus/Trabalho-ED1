@@ -30,6 +30,15 @@ const char* student_getName(Student student);
 const char* student_getEmail(Student student);
 
 /**
+ * Verifica se dois estudantes são iguais
+ * @param student <Student>
+ * @param comparedStudent <Student>
+ * @return <bool> true se forem iguais e <bool> false se forem diferentes
+ * 
+*/
+bool student_isEquals(Student student, Student comparedStudent);
+
+/**
  * Retorna os campos do <Student> em forma de string
  * @param student <Student>
  * @return <String>

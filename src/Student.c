@@ -60,6 +60,20 @@ const char* student_getEmail(Student student) {
   return student->email;
 }
 
+bool student_isEquals(Student student, Student comparedStudent) {
+  if(isNull(student) || isNull(comparedStudent))
+    return false;
+  
+  if(student_getRegistry(student) == student_getRegistry(comparedStudent)
+  && strcmp(student_getName(student), student_getName(comparedStudent))  == 0
+  && strcmp(student_getEmail(student), student_getEmail(comparedStudent))  == 0
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 char* student_toString(Student student) {
 
   if(isNull(student)) {

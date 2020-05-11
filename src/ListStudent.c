@@ -54,6 +54,30 @@ ListStudent listStudent_add(ListStudent listStudent, Student student) {
 
 }
 
+ListStudent listStudent_remove(ListStudent listStudent, Student student) {
+  
+  if(isNull(listStudent) || student == NULL) {
+    return NULL;
+  }
+
+  ListStudent prev = NULL;
+  ListStudent node = listStudent->next;
+
+  while(!isNull(node) && !student_isEquals(node->student, student)) {
+    prev = node;
+    node = node->next;
+  }
+
+
+  if(isNull(prev)) { // Remove do inicio da list
+    listStudent->next = node->next;
+  } else { // Remove do meio ou do final da lista
+    prev->next = node->next;
+  }
+  destruct_Student(node->student);
+  free(node);
+}
+
 Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) {
 
   if(isNull(listStudent)) {
@@ -95,12 +119,13 @@ Student listStudent_getStudentByEmail(ListStudent listStudent, const char* email
 }
 
 void listStudent_toPrint(ListStudent listStudent) {
-  if(isNull(listStudent)) {
+  ListStudent node = listStudent->next;
+  
+  if(isNull(listStudent) || isNull(node)) {
     printf("[ ]");
     return;
   }
 
-  ListStudent node = listStudent->next;
 
   printf("List Student: { \n");
   while(!isNull(node->next)) {
