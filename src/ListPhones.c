@@ -86,8 +86,8 @@ void listPhones_remove(ListPhones listPhones, const char* phone) {
   if(verifyPhone != NULL) {
     while(!isNull(node)) {
 
-      if(node == verifyPhone) {
-        node = verifyPhone->next;   //erro de memória
+      if(node->next == verifyPhone) {
+        node->next = verifyPhone->next;   //erro de memória
         free(verifyPhone);
         return;
       }
