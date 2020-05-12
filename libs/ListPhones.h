@@ -32,10 +32,26 @@ ListPhones listPhones_add(ListPhones listPhones, const char* phone);
  * @param ListPhones <ListPhones>
  * @param phone <const char*>
  * */
-ListPhones listPhones_search(ListPhones listPhones, const char* phone);
+bool listPhones_search(ListPhones listPhones, const char* phone);
 
+/**
+ * Remove o nó da Lista <ListPhones>
+ * @param ListPhones <ListPhones>
+ * @param phone <const char*>
+ * */
 ListPhones listPhones_remove(ListPhones listPhones, const char* phone);
 
+/**
+ * Edita o número selecionado na Lista <ListPhones>
+ * @param ListPhones <ListPhones>
+ * @param phone <const char*>
+ * @param phoneModify <const char*>
+ * */
+void listPhones_edit(ListPhones listPhones, const char* phone, const char* phoneModify);
+
+/**
+ * Printa a lista no terminal com formatação <ListPhones>
+ * @param ListPhones <ListPhones>*/
 void listPhone_toString(ListPhones listPhones);
 
 #endif
