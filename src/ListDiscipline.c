@@ -114,5 +114,4 @@ Discipline listDiscipline_getDisciplineByName(ListDiscipline listDiscipline, con
   }
 
   return NULL;
-
 }

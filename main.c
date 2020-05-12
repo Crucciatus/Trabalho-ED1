@@ -11,9 +11,10 @@ int main(void) {
   listDiscipline_add(listDiscipline, new_Discipline(1, "Programação 1"));
   listDiscipline_add(listDiscipline, new_Discipline(2, "Estrutura de Dados"));
 
-  Discipline discipline = listDiscipline_getDisciplineById(listDiscipline, 0);
+  Discipline discipline = listDiscipline_getDisciplineByName(listDiscipline, "Estrutura de Dados");
 
   printf("%s\n", discipline_getName(discipline));
+  printf("%d\n", discipline_getId(discipline));
 
   destruct_ListDiscipline(listDiscipline);
   destruct_Discipline(discipline);

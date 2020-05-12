@@ -17,6 +17,7 @@ Discipline new_Discipline(int id, const char *name) {
     return NULL;
   }
   
+  discipline->id = id;
   strcpy(discipline->name, name);
 
   return discipline;
