@@ -34,11 +34,8 @@ ListPhones listPhones_add(ListPhones listPhones, const char* phone);
  * */
 ListPhones listPhones_search(ListPhones listPhones, const char* phone);
 
-/**
- * Remove o nó da lista <ListPhones>
- * @param ListPhones <ListPhones>
- * @param phone <const char*>
- * */
-void listPhones_remove(ListPhones listPhones, const char* phone);
+ListPhones listPhones_remove(ListPhones listPhones, const char* phone);
+
+void listPhone_toString(ListPhones listPhones);
 
 #endif

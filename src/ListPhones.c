@@ -65,7 +65,7 @@ ListPhones listPhones_search(ListPhones listPhones, const char* phone) {
 
   while(!isNull(node)) {
 
-    if(!strcmp(node->phone, phone))
+    if(strcmp(node->phone, phone) == 0)
       return node;
     else 
       node = node->next;
@@ -74,29 +74,47 @@ ListPhones listPhones_search(ListPhones listPhones, const char* phone) {
   return NULL;
 }
 
-void listPhones_remove(ListPhones listPhones, const char* phone) {
+ListPhones listPhones_remove(ListPhones listPhones, const char* phone) {
 
   if(isNull(listPhones)) {
+    return NULL;
+  }
+
+  // ListPhones verifyPhone = listPhones_search(listPhones, phone);
+  ListPhones prev = NULL; // Elemento anterior trackeado
+  ListPhones node = listPhones->next; // O nó
+
+  while(!isNull(node) && strcmp(node->phone, phone) != 0) {
+    prev = node; // Isso é para saber qual é o elemento anterior
+    node = node->next;
+  }
+  
+  // É possível remover de três lugares: Início, meio ou fim.
+  if(isNull(prev)) { // Remove do inicio
+    listPhones->next = node->next; // A cabeça da lista aponta para o próximo elemento do elemento atual
+  } else { // remove do meio ou do fim
+    prev->next = node->next; // O elemento anterior aponta para o proximo elemento do elemento atual
+  }
+
+  free(node); // Remove o elemento encontrado
+  return listPhones;
+}
+
+void listPhone_toString(ListPhones listPhones) {
+
+  ListPhones node = listPhones->next;
+
+  if(isNull(listPhones) || isNull(node)) {
+    printf("[ ]");
     return;
   }
 
-  ListPhones verifyPhone = listPhones_search(listPhones, phone);
-  ListPhones node = listPhones->next;
-  
-  if(verifyPhone != NULL) {
-    while(!isNull(node)) {
-
-      if(node == verifyPhone) {
-        node = verifyPhone->next;   //erro de memória
-        free(verifyPhone);
-        return;
-      }
-    
-      node = node->next;
-    }
+  printf("List Phones: [ ");
+  while(!isNull(node->next)) {
+    printf("%s, ", node->phone);
+    node = node->next;
   }
+  printf("%s ]\n", node->phone);
 
-  return;
+
 }
-
-

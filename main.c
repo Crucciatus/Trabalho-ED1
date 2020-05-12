@@ -11,12 +11,16 @@ int main(void) {
   listPhones_add(listPhones, "991941273");
   listPhones_add(listPhones, "991941275");
   listPhones_add(listPhones, "991941274");
-  ListPhones verifyPhone =  listPhones_search(listPhones, "991941272"); //não consigo printar esse nó q foi encontrado (verifyPhone->phone)
+  // ListPhones verifyPhone =  listPhones_search(listPhones, "991941273"); //não consigo printar esse nó q foi encontrado (verifyPhone->phone)
 
   //printf("numero encontrado: %s ", );
 
   listPhones_remove(listPhones, "991941273");
+  listPhones_remove(listPhones, "991941274");
+  listPhones_remove(listPhones, "991941275");
   
+  listPhone_toString(listPhones);
+
   destruct_ListPhones(listPhones);
 
   return EXIT_SUCCESS;
