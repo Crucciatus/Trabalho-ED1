@@ -61,7 +61,6 @@ void listDiscipline_remove(ListDiscipline listDiscipline, Discipline discipline)
   ListDiscipline prev = NULL;
   ListDiscipline node = listDiscipline->next;
 
-  // TODO: Criar os métodos na entidade Discipline
   while(!isNull(node) && !discipline_isEquals(node->discipline, discipline)) {
     prev = node;
     node = node->next;
@@ -75,4 +74,42 @@ void listDiscipline_remove(ListDiscipline listDiscipline, Discipline discipline)
   }
   destruct_Discipline(node->discipline);
   free(node);
+}
+
+Discipline listDiscipline_getDisciplineById(ListDiscipline listDiscipline, int id) {
+
+  if(isNull(listDiscipline)) {
+    return NULL;
+  }
+
+  ListDiscipline node = listDiscipline->next;
+
+  while(!isNull(node)) {
+    if(discipline_getId(listDiscipline->discipline) == id) {
+      Discipline discipline = new_Discipline(id, discipline_getName(listDiscipline->discipline));
+      return discipline;
+    }
+  }
+
+  return NULL;
+
+}
+
+Discipline listDiscipline_getDisciplineByName(ListDiscipline listDiscipline, const char* name) {
+
+  if(isNull(listDiscipline)) {
+    return NULL;
+  }
+
+  ListDiscipline node = listDiscipline->next;
+
+  while(!isNull(node)) {
+    if(strcmp(discipline_getName(listDiscipline->discipline), name) == 0) {
+      Discipline discipline = new_Discipline(discipline_getId(listDiscipline->discipline), name);
+      return discipline;
+    }
+  }
+
+  return NULL;
+
 }

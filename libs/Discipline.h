@@ -1,6 +1,10 @@
 #ifndef DISCIPLINE_H
 #define DISCIPLINE_H
 
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
 typedef struct DISCIPLINE *Discipline;
 
 /**

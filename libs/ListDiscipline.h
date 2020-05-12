@@ -37,4 +37,20 @@ ListDiscipline listDiscipline_add(ListDiscipline listDiscipline, Discipline disc
 */
 void listDiscipline_remove(ListDiscipline listDiscipline, Discipline discipline);
 
+/**
+ * Retorna uma disciplina buscada pelo id
+ * @param listDiscpline <ListDiscipline>
+ * @param id <Int>
+ * @param <Discipline> 
+*/
+Discipline listDiscipline_getDisciplineById(ListDiscipline listDiscipline, int id);
+
+/**
+ * Retorna uma disciplina buscada pelo nome
+ * @param listDiscpline <ListDiscipline>
+ * @param id <Int>
+ * @param <Discipline> 
+*/
+Discipline listDiscipline_getDisciplineByName(ListDiscipline listDiscipline, const char* name);
+
 #endif
