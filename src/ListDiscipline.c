@@ -85,10 +85,11 @@ Discipline listDiscipline_getDisciplineById(ListDiscipline listDiscipline, int i
   ListDiscipline node = listDiscipline->next;
 
   while(!isNull(node)) {
-    if(discipline_getId(listDiscipline->discipline) == id) {
-      Discipline discipline = new_Discipline(id, discipline_getName(listDiscipline->discipline));
+    if(discipline_getId(node->discipline) == id) {
+      Discipline discipline = new_Discipline(id, discipline_getName(node->discipline));
       return discipline;
     }
+    node = node->next;
   }
 
   return NULL;
@@ -104,10 +105,12 @@ Discipline listDiscipline_getDisciplineByName(ListDiscipline listDiscipline, con
   ListDiscipline node = listDiscipline->next;
 
   while(!isNull(node)) {
-    if(strcmp(discipline_getName(listDiscipline->discipline), name) == 0) {
-      Discipline discipline = new_Discipline(discipline_getId(listDiscipline->discipline), name);
+    if(strcmp(discipline_getName(node->discipline), name) == 0) {
+      Discipline discipline = new_Discipline(discipline_getId(node->discipline), name);
       return discipline;
     }
+    node = node->next;
+
   }
 
   return NULL;
