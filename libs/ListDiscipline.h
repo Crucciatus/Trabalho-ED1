@@ -2,6 +2,7 @@
 #define LIST_DISCIPLINE_H
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "Discipline.h"
 
