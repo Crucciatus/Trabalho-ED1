@@ -28,7 +28,7 @@ void destruct_ListDiscipline(ListDiscipline listDiscipline) {
 
   while(!isNull(node)) {
     ListDiscipline aux = node->next;
-    // destruct_Discipline(node->discipline);
+    destruct_Discipline(node->discipline);
     free(node);
     node = aux;
   }
@@ -55,7 +55,7 @@ ListDiscipline listDiscipline_add(ListDiscipline listDiscipline, Discipline disc
 void listDiscipline_remove(ListDiscipline listDiscipline, Discipline discipline) {
   
   if(isNull(listDiscipline) || discipline == NULL) {
-    return NULL;
+    return;
   }
 
   ListDiscipline prev = NULL;

@@ -2,7 +2,7 @@
 
 struct DISCIPLINE {
   int id;
-  char *name;
+  char name[40];
 };
 
 static bool isNull(Discipline discipline) {
@@ -17,7 +17,6 @@ Discipline new_Discipline(int id, const char *name) {
     return NULL;
   }
   
-  discipline->id = id;
   strcpy(discipline->name, name);
 
   return discipline;
@@ -49,7 +48,7 @@ const char* discipline_getName(Discipline discipline) {
 bool discipline_isEquals(Discipline discipline, Discipline disciplineCompared) {
 
   if(discipline->id == disciplineCompared->id 
-    && strcmp(discipline, disciplineCompared) == 0
+    && strcmp(discipline_getName(discipline), discipline_getName(disciplineCompared)) == 0
   ) {
     return true;
   }
