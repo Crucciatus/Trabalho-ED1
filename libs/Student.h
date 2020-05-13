@@ -6,6 +6,9 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "ListDiscipline.h"
+#include "ListPhones.h"
+
 //tipos definidos:
 typedef struct STUDENT *Student;
 

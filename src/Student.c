@@ -3,8 +3,8 @@
 struct STUDENT {
   int resgistry;
   char name[40];
-  //phone <ListPhone>
-  //discipline <ListDiscipline>
+  ListDiscipline listDiscipline;
+  ListPhones listPhones;
   char email[40];
 };
 
