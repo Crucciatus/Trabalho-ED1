@@ -24,6 +24,7 @@ ListDiscipline new_ListDiscipline() {
 }
 
 void destruct_ListDiscipline(ListDiscipline listDiscipline) {
+  
   ListDiscipline node = listDiscipline->next;
 
   while(!isNull(node)) {
@@ -65,7 +66,6 @@ void listDiscipline_remove(ListDiscipline listDiscipline, Discipline discipline)
     prev = node;
     node = node->next;
   }
-
 
   if(isNull(prev)) { // Remove do inicio da list
     listDiscipline->next = node->next;
@@ -114,4 +114,21 @@ Discipline listDiscipline_getDisciplineByName(ListDiscipline listDiscipline, con
   }
 
   return NULL;
+}
+
+void listDiscipline_toPrint(ListDiscipline listDiscipline) {
+  ListDiscipline node = listDiscipline->next;
+
+  if(isNull(listDiscipline) || isNull(node)) {
+    printf("[ ]");
+    return;
+  }
+
+  printf("Disciplinas: [ ");
+  while(!isNull(node->next)) {
+    printf("%d - %s, ", discipline_getId(node->discipline), discipline_getName(node->discipline));
+    node = node->next;
+  }
+  printf("%d - %s ]\n", discipline_getId(node->discipline), discipline_getName(node->discipline));
+
 }

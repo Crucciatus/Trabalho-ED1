@@ -6,6 +6,9 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "ListDiscipline.h"
+#include "ListPhones.h"
+
 //tipos definidos:
 typedef struct STUDENT *Student;
 
@@ -45,6 +48,20 @@ const char* student_getEmail(Student student);
  * 
 */
 bool student_isEquals(Student student, Student comparedStudent);
+
+/**
+ * Retorna a lista de disciplina da instância em estudante
+ * @param student <Student>
+ * @return <ListDiscipline>
+*/
+ListDiscipline student_getListDiscipline(Student student);
+
+/**
+ * Retorna a lista de telefones da instância em estudante
+ * @param student <Student>
+ * @return <LitPhones>
+*/
+ListPhones student_getListPhones(Student student);
 
 /**
  * Retorna os campos do <Student> em forma de string

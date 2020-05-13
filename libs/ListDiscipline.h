@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "Discipline.h"
 
@@ -52,5 +53,11 @@ Discipline listDiscipline_getDisciplineById(ListDiscipline listDiscipline, int i
  * @param <Discipline> 
 */
 Discipline listDiscipline_getDisciplineByName(ListDiscipline listDiscipline, const char* name);
+
+/**
+ * Imprime a lista de Disciplinas formatada
+ * @param listDiscipline <ListDiscipline>
+*/
+void listDiscipline_toPrint(ListDiscipline listDiscipline);
 
 #endif

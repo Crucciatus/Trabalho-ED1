@@ -3,8 +3,8 @@
 struct STUDENT {
   int resgistry;
   char name[40];
-  //phone <ListPhone>
-  //discipline <ListDiscipline>
+  ListDiscipline listDiscipline;
+  ListPhones listPhones;
   char email[40];
 };
 
@@ -19,6 +19,8 @@ Student new_Students(int registry, const char* name,const char* email) {
   }
   student->resgistry = registry;
   strcpy(student->name, name);
+  student->listDiscipline = new_ListDiscipline();
+  student->listPhones = new_ListPhones();
   strcpy(student->email, email);
 
   return student;
@@ -30,6 +32,8 @@ void destruct_Student(Student student) {
     return;
   }
 
+  destruct_ListDiscipline(student->listDiscipline);
+  destruct_ListPhones(student->listPhones);
   free(student);
 }
 
@@ -72,6 +76,24 @@ bool student_isEquals(Student student, Student comparedStudent) {
   }
 
   return false;
+}
+
+ListDiscipline student_getListDiscipline(Student student) {
+  
+  if(isNull(student)) {
+    return NULL;
+  }
+  
+  return student->listDiscipline;
+}
+
+ListPhones student_getListPhones(Student student) {
+  
+  if(isNull(student)) {
+    return NULL;
+  }
+
+  return student->listPhones;
 }
 
 char* student_toString(Student student) {
