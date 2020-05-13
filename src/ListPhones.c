@@ -9,6 +9,7 @@ static bool isNull(ListPhones listPhones) {
   return listPhones == NULL;
 }
 
+//cria uma lista
 ListPhones new_ListPhones() {
   
   ListPhones listPhones = (ListPhones) malloc(sizeof(struct LIST_PHONES));
@@ -22,6 +23,7 @@ ListPhones new_ListPhones() {
   return listPhones;
 }
 
+//Destrói a Lista de telefones
 void destruct_ListPhones(ListPhones listPhones) {
   
   if(isNull(listPhones)) {
@@ -39,6 +41,7 @@ void destruct_ListPhones(ListPhones listPhones) {
   free(listPhones);
 }
 
+//Adiciona um novo telefone à lista
 ListPhones listPhones_add(ListPhones listPhones, const char* phone) {
   
   if(isNull(listPhones)) {
@@ -55,7 +58,7 @@ ListPhones listPhones_add(ListPhones listPhones, const char* phone) {
   return listPhones;
 }
 
-ListPhones listPhones_search(ListPhones listPhones, const char* phone) {
+bool listPhones_search(ListPhones listPhones, const char* phone) {
   
   if(isNull(listPhones)) {
     return NULL;
@@ -66,14 +69,15 @@ ListPhones listPhones_search(ListPhones listPhones, const char* phone) {
   while(!isNull(node)) {
 
     if(strcmp(node->phone, phone) == 0)
-      return node;
+      return true;
     else 
       node = node->next;
   }
 
-  return NULL;
+  return false;
 }
 
+//Remove um nó da lista 
 ListPhones listPhones_remove(ListPhones listPhones, const char* phone) {
 
   if(isNull(listPhones)) {
@@ -100,6 +104,27 @@ ListPhones listPhones_remove(ListPhones listPhones, const char* phone) {
   return listPhones;
 }
 
+//Edita o telefone (phone) do nó pelo novo telefone(phoneModify)
+void listPhones_edit(ListPhones listPhones, const char* phone, const char* newPhone) {
+
+  if(isNull(listPhones)) {
+    return;
+  }
+
+  ListPhones node = listPhones->next;
+
+  while(!isNull(node)) {
+
+    if(!strcmp(node->phone, phone)) {  //verifica se os número passado por parametro é igual ao da lista 
+      strcpy(node->phone, newPhone);  // copia o newPhone para o node->phone
+      return;
+    }
+
+    node = node->next;
+  }
+}
+
+//Faz a impressão da lista telefone no terminal com formatação
 void listPhone_toString(ListPhones listPhones) {
 
   ListPhones node = listPhones->next;
