@@ -6,6 +6,12 @@
 #include <stdbool.h>
 #include <string.h>
 
+
+/**
+ * Composição de objetos: 
+ * Tem um objeto principal
+ * Object(Student) 
+*/
 #include "ListDiscipline.h"
 #include "ListPhones.h"
 
@@ -17,7 +23,7 @@ typedef struct STUDENT *Student;
  * Cria uma nova instancia de <Student>
  * @param Student <Student>
  * */
-Student new_Students(int registry, const char* name,const char* email);
+Student new_Student(int registry, const char* name,const char* email);
 
 /**
  * Destroi uma nova instancia de <Student>

@@ -39,11 +39,10 @@ void destruct_ListStudent(ListStudent listStudent) {
 
 ListStudent listStudent_add(ListStudent listStudent, Student student) {
 
-  if(isNull(listStudent))
+  if(isNull(listStudent) || student == NULL)
     return listStudent;
   
   ListStudent node = listStudent->next;
-
   ListStudent newNode = new_ListStudent();
   newNode->student = student;
 

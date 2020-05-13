@@ -3,7 +3,7 @@
 struct STUDENT {
   int resgistry;
   char name[40];
-  ListDiscipline listDiscipline;
+  ListDiscipline listDiscipline; 
   ListPhones listPhones;
   char email[40];
 };
@@ -12,7 +12,7 @@ bool isNull(Student student) {
   return student == NULL;
 }
 
-Student new_Students(int registry, const char* name,const char* email) {
+Student new_Student(int registry, const char* name,const char* email) {
   Student student = (Student) malloc(sizeof(struct STUDENT));
   if(isNull(student)) {
     return NULL;
