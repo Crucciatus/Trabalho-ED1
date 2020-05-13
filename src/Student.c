@@ -19,6 +19,8 @@ Student new_Students(int registry, const char* name,const char* email) {
   }
   student->resgistry = registry;
   strcpy(student->name, name);
+  student->listDiscipline = new_ListDiscipline();
+  student->listPhones = new_ListPhones();
   strcpy(student->email, email);
 
   return student;
@@ -30,6 +32,8 @@ void destruct_Student(Student student) {
     return;
   }
 
+  destruct_ListDiscipline(student->listDiscipline);
+  destruct_ListPhones(student->listPhones);
   free(student);
 }
 
