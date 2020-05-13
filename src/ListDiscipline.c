@@ -24,6 +24,7 @@ ListDiscipline new_ListDiscipline() {
 }
 
 void destruct_ListDiscipline(ListDiscipline listDiscipline) {
+  
   ListDiscipline node = listDiscipline->next;
 
   while(!isNull(node)) {
