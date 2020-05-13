@@ -78,6 +78,24 @@ bool student_isEquals(Student student, Student comparedStudent) {
   return false;
 }
 
+ListDiscipline student_getListDiscipline(Student student) {
+  
+  if(isNull(student)) {
+    return NULL;
+  }
+  
+  return student->listDiscipline;
+}
+
+ListPhones student_getListPhones(Student student) {
+  
+  if(isNull(student)) {
+    return NULL;
+  }
+
+  return student->listPhones;
+}
+
 char* student_toString(Student student) {
 
   if(isNull(student)) {
