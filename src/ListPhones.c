@@ -1,7 +1,7 @@
 #include "../libs/ListPhones.h"
 
 struct LIST_PHONES {
-  char phone[14];
+  char phone[25];
   struct LIST_PHONES* next;
 };
 
@@ -130,16 +130,13 @@ void listPhone_toString(ListPhones listPhones) {
   ListPhones node = listPhones->next;
 
   if(isNull(listPhones) || isNull(node)) {
-    printf("[ ]");
+    printf("[ ]\n");
     return;
   }
 
-  printf("List Phones: [ ");
-  while(!isNull(node->next)) {
-    printf("%s, ", node->phone);
+  int iteration = 1;
+  while(!isNull(node)) {
+    printf("%d°. %s\n", iteration++, node->phone);
     node = node->next;
   }
-  printf("%s ]\n", node->phone);
-
-
 }

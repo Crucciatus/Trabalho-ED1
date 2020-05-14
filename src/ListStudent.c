@@ -1,6 +1,7 @@
 #include "../libs/ListStudent.h"
 
 struct LIST_STUDENT {
+  int size;
   Student student;
   struct LIST_STUDENT *next;
 };
@@ -17,7 +18,7 @@ ListStudent new_ListStudent() {
     // Emite um erro
     return NULL;
   }
-  
+  listStudent->size = 0;
   listStudent->student = NULL;
   listStudent->next = NULL;
 
@@ -25,6 +26,8 @@ ListStudent new_ListStudent() {
 }
 
 void destruct_ListStudent(ListStudent listStudent) {
+  if(isNull(listStudent)) return;
+  
   ListStudent node = listStudent->next;
 
   while(!isNull(node)) {
@@ -48,7 +51,7 @@ ListStudent listStudent_add(ListStudent listStudent, Student student) {
 
   newNode->next = node;
   listStudent->next = newNode;
-
+  listStudent->size++;
   return listStudent;
 
 }
@@ -73,8 +76,11 @@ ListStudent listStudent_remove(ListStudent listStudent, Student student) {
   } else { // Remove do meio ou do final da lista
     prev->next = node->next;
   }
+
   destruct_Student(node->student);
   free(node);
+  listStudent->size--;
+  return listStudent;
 }
 
 Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) {
@@ -87,7 +93,7 @@ Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) 
 
   while(!isNull(node)) {
     if(student_getRegistry(node->student) == registry) {
-      Student student = new_Students(registry, student_getName(node->student), student_getEmail(node->student));
+      Student student = new_Student(registry, student_getName(node->student), student_getEmail(node->student));
       return student;
       
     }
@@ -107,7 +113,7 @@ Student listStudent_getStudentByEmail(ListStudent listStudent, const char* email
 
   while(!isNull(node)) {
     if(strcmp(student_getEmail(node->student), email) == 0) {
-      Student student = new_Students(student_getRegistry(node->student), student_getName(node->student), email);
+      Student student = new_Student(student_getRegistry(node->student), student_getName(node->student), email);
       return student;
       
     }
@@ -121,15 +127,12 @@ void listStudent_toPrint(ListStudent listStudent) {
   ListStudent node = listStudent->next;
   
   if(isNull(listStudent) || isNull(node)) {
-    printf("[ ]");
+    printf("[ ]\n");
     return;
   }
-
-
-  printf("List Student: { \n");
-  while(!isNull(node->next)) {
-    printf("%s, \n", student_toString(node->student));
+  printf("Quantidade de Registros: %d\n\n", listStudent->size);
+  while(!isNull(node)) {
+    student_toString(node->student);
     node = node->next;
   }
-  printf("%s }\n", student_toString(node->student));
 }

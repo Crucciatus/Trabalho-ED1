@@ -124,11 +124,9 @@ void listDiscipline_toPrint(ListDiscipline listDiscipline) {
     return;
   }
 
-  printf("Disciplinas: [ ");
-  while(!isNull(node->next)) {
-    printf("%d - %s, ", discipline_getId(node->discipline), discipline_getName(node->discipline));
+  while(!isNull(node)) {
+    printf("%d - %s\n", discipline_getId(node->discipline), discipline_getName(node->discipline));
     node = node->next;
   }
-  printf("%d - %s ]\n", discipline_getId(node->discipline), discipline_getName(node->discipline));
 
 }
