@@ -39,7 +39,7 @@ void destruct_NomeDaEntidade(Entidade entidade);
 > Esse padrão foi de suma importância para nós e foi definido previamente. Facilitou nas rotina
 > de desalocamento de memória e de uso sem conhecer os detalhes de implementação.
 
-## 👍 Autores
+## Autores
 
 |[<img src="https://avatars1.githubusercontent.com/u/45038312?s=400&u=07ff6cd97eb80c87f7c67da987da219b87ddb615&v=4" width="115"><br><sub>@Crucciatus</sub>](https://github.com/Crucciatus) | [<img src="https://avatars3.githubusercontent.com/u/51142291?s=400&u=b376313fa7a778c5b3ad71c86911e78654cf9812&v=4" width="115"><br><sub>@Rod1Andrade</sub>](https://github.com/Rod1Andrade) |
 |:-:|:-:|
