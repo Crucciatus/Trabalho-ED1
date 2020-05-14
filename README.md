@@ -6,7 +6,8 @@
 ## 📍 Disclaimer 
 
 **Sistema operacional:**  Ubuntu 20.04
-**Copilador:** gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2) 
+
+**Compilador:** gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2) 
 
 Caso encontre problemas para compilar por causa da diferença de sistemas operacionais, segue o vídeo usando programa [aqui](https://youtube.com/).
 
