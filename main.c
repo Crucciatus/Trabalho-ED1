@@ -6,6 +6,7 @@
 int main(void) {
 
   start();
+  stop();
 
   return EXIT_SUCCESS;
 }

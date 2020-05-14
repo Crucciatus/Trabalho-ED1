@@ -133,6 +133,7 @@ void listStudent_toPrint(ListStudent listStudent) {
   printf("Quantidade de Registros: %d\n\n", listStudent->size);
   while(!isNull(node)) {
     student_toString(node->student);
+    printf("\n\n");
     node = node->next;
   }
 }
