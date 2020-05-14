@@ -25,6 +25,8 @@ ListStudent new_ListStudent() {
 }
 
 void destruct_ListStudent(ListStudent listStudent) {
+  if(isNull(listStudent)) return;
+  
   ListStudent node = listStudent->next;
 
   while(!isNull(node)) {

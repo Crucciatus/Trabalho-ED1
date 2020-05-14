@@ -66,6 +66,7 @@ static void insertStudent() {
 }
 
 void start() {
+  listStudent = new_ListStudent();
   int keep = 1;
   do {
     int option = menu();
