@@ -3,9 +3,10 @@
 
 #include "libs/Schedule.h"
 
-int main(int argc, char **argv) {
+int main(void) {
 
   start();
   stop();
+
   return EXIT_SUCCESS;
 }
