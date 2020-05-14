@@ -93,9 +93,7 @@ Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) 
 
   while(!isNull(node)) {
     if(student_getRegistry(node->student) == registry) {
-      Student student = new_Student(registry, student_getName(node->student), student_getEmail(node->student));
-      return student;
-      
+      return node->student;
     }
     node = node->next;
   }
@@ -113,9 +111,7 @@ Student listStudent_getStudentByEmail(ListStudent listStudent, const char* email
 
   while(!isNull(node)) {
     if(strcmp(student_getEmail(node->student), email) == 0) {
-      Student student = new_Student(student_getRegistry(node->student), student_getName(node->student), email);
-      return student;
-      
+      return node->student;
     }
     node = node->next;
   }

@@ -298,7 +298,6 @@ static void searchStudent () {
   setbuf(stdin, NULL);
   printf("Pressione enter para continuar...");
   getchar();
-  destruct_Student(student);
 }
 
 // Mostra todos os Estudantes
