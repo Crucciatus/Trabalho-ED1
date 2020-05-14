@@ -5,7 +5,7 @@ struct STUDENT {
   char name[40];
   ListDiscipline listDiscipline; 
   ListPhones listPhones;
-  char email[40];
+  char email[120];
 };
 
 bool isNull(Student student) {
@@ -96,20 +96,20 @@ ListPhones student_getListPhones(Student student) {
   return student->listPhones;
 }
 
-char* student_toString(Student student) {
+void student_toString(Student student) {
 
   if(isNull(student)) {
-    return NULL;
+    return;
   }
 
-  char *str = malloc(sizeof(char) * 120);
-  strcpy(str, "Students [ ");
-  // TODO: Converter o registro inteiro para string
-  // strcat(str, student_getRegistry(student)));
-  // strcat(str, ", ");
-  strcat(str, student_getName(student));
-  strcat(str, ", ");
-  strcat(str, student_getEmail(student));
-  strcat(str, " ]\0");
-  return str;
+  printf("=====================Dados Pessoais=====================\n");
+  printf("Matricula: %d\n", student_getRegistry(student));
+  printf("Nome: %s\n", student_getName(student));
+  printf("Email: %s\n", student_getEmail(student));
+  printf("======================Dados Contato=====================\n");
+  listPhone_toString(student_getListPhones(student));
+  printf("=======================Disciplinas======================\n");
+  listDiscipline_toPrint(student_getListDiscipline(student));
+  printf("========================================================\n\n");
+
 }

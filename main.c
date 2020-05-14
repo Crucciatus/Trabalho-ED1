@@ -3,7 +3,7 @@
 
 #include "libs/Schedule.h"
 
-int main(void) {
+int main(int argc, char **argv) {
 
   start();
   stop();

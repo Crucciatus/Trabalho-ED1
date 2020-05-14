@@ -1,6 +1,7 @@
 #include "../libs/ListStudent.h"
 
 struct LIST_STUDENT {
+  int size;
   Student student;
   struct LIST_STUDENT *next;
 };
@@ -17,7 +18,7 @@ ListStudent new_ListStudent() {
     // Emite um erro
     return NULL;
   }
-  
+  listStudent->size = 0;
   listStudent->student = NULL;
   listStudent->next = NULL;
 
@@ -50,7 +51,7 @@ ListStudent listStudent_add(ListStudent listStudent, Student student) {
 
   newNode->next = node;
   listStudent->next = newNode;
-
+  listStudent->size++;
   return listStudent;
 
 }
@@ -75,8 +76,11 @@ ListStudent listStudent_remove(ListStudent listStudent, Student student) {
   } else { // Remove do meio ou do final da lista
     prev->next = node->next;
   }
+
   destruct_Student(node->student);
   free(node);
+  listStudent->size--;
+  return listStudent;
 }
 
 Student listStudent_getStudentByRegistry(ListStudent listStudent, int registry) {
@@ -123,15 +127,12 @@ void listStudent_toPrint(ListStudent listStudent) {
   ListStudent node = listStudent->next;
   
   if(isNull(listStudent) || isNull(node)) {
-    printf("[ ]");
+    printf("[ ]\n");
     return;
   }
-
-
-  printf("List Student: { \n");
-  while(!isNull(node->next)) {
-    printf("%s, \n", student_toString(node->student));
+  printf("Quantidade de Registros: %d\n\n", listStudent->size);
+  while(!isNull(node)) {
+    student_toString(node->student);
     node = node->next;
   }
-  printf("%s }\n", student_toString(node->student));
 }

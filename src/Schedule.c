@@ -32,11 +32,10 @@ static int menu() {
   return option;
 }
 
-
 //Lógica para inserir telefones em um estudante
 static void insertPhones(Student student) {
   char phones[SIZE_PHONES];
-  int iteration = 0;
+  int iteration = 1;
 
   ListPhones listPhones = student_getListPhones(student);
 
@@ -53,7 +52,7 @@ static void insertPhones(Student student) {
 
     setbuf(stdin, NULL); // Limpa o buffer
 
-    if(strcmp(phones, "Parar") == 0 || strcmp(phones, "parar") == 0)
+    if(strcmp(phones, "Parar") == 0 || strcmp(phones, "parar") == 0 || strcmp(phones, "0") == 0)
       break;
     
     listPhones_add(listPhones, phones);
@@ -137,13 +136,66 @@ static void insertStudent() {
   printf("Inserido com seucesso!\n");
 }
 
+static void removeStudent() {
+  // LINUX
+  system("clear");
+  // system("cls"); Windows
+
+  Student student = NULL;
+  int option;
+  int registry;
+  char email[SIZE_EMAIL];
+  setbuf(stdin, NULL);
+
+  printf("Remover aluno:\n");
+  printf("1. Matricula\n");
+  printf("2. Email\n");
+  printf("0. Cancelar\n");
+
+  // TODO: Validar opção
+  printf("Opção: ");
+  scanf("%d", &option);
+
+  if(option == 1) {
+    printf("Digite a matricula: ");
+    scanf("%d", &registry);
+
+    student = listStudent_getStudentByRegistry(listStudent, registry);
+
+  } else if(option == 2){
+    setbuf(stdin, NULL);
+    printf("Digite o email: ");
+    fgets(email, SIZE_EMAIL, stdin);
+    email[strlen(email) - 1] = '\0';
+
+    student = listStudent_getStudentByEmail(listStudent, email);
+  } else {
+    destruct_Student(student);
+    return;
+  }
+
+  // Remove
+  if(student != NULL) {
+    listStudent_remove(listStudent, student);
+    printf("Removido com Sucesso\n");
+  } else {
+    printf("Falha ao tentar remover\n");
+  }
+
+  setbuf(stdin, NULL);
+  printf("Pressione enter para continuar...");
+  getchar();
+  destruct_Student(student);
+}
+
+// Mostra todos os Estudantes
 static void showAllStudents() {
   // LINUX
   system("clear");
   // system("cls"); Windows
 
   setbuf(stdin, NULL);
-  printf("\n==========Todos Alunos==========\n");
+  printf("Todos Alunos\n");
   listStudent_toPrint(listStudent);
 
   printf("\nPressione enter para continuar...\n");
@@ -169,6 +221,9 @@ void start() {
       break;
       case INSERT:
         insertStudent();
+      break;
+      case DELETE:
+        removeStudent();
       break;
       case SHOW_ALL:
         showAllStudents();

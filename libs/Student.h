@@ -70,10 +70,9 @@ ListDiscipline student_getListDiscipline(Student student);
 ListPhones student_getListPhones(Student student);
 
 /**
- * Retorna os campos do <Student> em forma de string
+ * Imprime o Student
  * @param student <Student>
- * @return <String>
 */
-char* student_toString(Student student);
+void student_toString(Student student);
 
 #endif
