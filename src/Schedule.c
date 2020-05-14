@@ -16,18 +16,30 @@ enum OPTIONS {
   EXIT
 };
 
+int flag = 1; //SOMENTE PARA VALIDAÇÃO
+
 static int menu() {
   int option;
-  printf("1. Inserir aluno\n");
-  printf("2. Excluir aluno\n");
-  printf("3. Buscar aluno\n");
-  printf("4. Listar alunos\n");
-  printf("5. Sair\n");
-
-  printf("Escolha uma opção: ");
   
-  // TODO: Validar a escolha
-  scanf("%d", &option);
+  do{
+    
+    printf("1. Inserir aluno\n");
+    printf("2. Excluir aluno\n");
+    printf("3. Buscar aluno\n");
+    printf("4. Listar alunos\n");
+    printf("5. Sair\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &option);
+
+    system("clear"); //LINUX
+    system("cls"); //WINDOWS
+
+    if(option != 1 && option != 2 && option != 3 && option != 4 && option != 5) //VALIDAÇÃO DA OPTION
+      printf("Opção inválida! (Digite as opções disponiveis no menu)\n");
+    else
+      break;
+
+  }while(flag);
 
   return option;
 }
@@ -116,16 +128,45 @@ static void insertStudent() {
 
   printf("Inserir novo estudante: \n");
   printf("Número de matricula: %d\n", registry);
-  printf("Digite o nome: ");
-  fgets(name, SIZE_NAME, stdin);
-  name[strlen(name) - 1] = '\0';
+  
+  do{  
+
+    printf("Digite o nome: ");
+    fgets(name, SIZE_NAME, stdin);
+    name[strlen(name) - 1] = '\0';
+    
+    system("clear"); //LINUX
+    system("cls"); //WINDOWS
+
+    if(strlen(name) < 3)  //VALIDAÇÃO DO NOME(É NECESSÁRIO NO MINIMO 3 LETRAS)
+      printf("Digite um nome válido! (minimo de 3 letras)\n");
+    else
+      break;
+  
+  }while(flag);  
 
   setbuf(stdin, NULL);
 
-  printf("Digite o email: ");
-  fgets(email, SIZE_EMAIL, stdin);
-  email[strlen(email) - 1] = '\0';
+  flag = 1; //somente para validação
+  do{  
+    
+    printf("Digite o email: ");
+    fgets(email, SIZE_EMAIL, stdin);
+    email[strlen(email) - 1] = '\0';
+
+    system("clear"); //LINUX
+    system("cls"); //WINDOWS
+
+    for(int i = 0; i < strlen(email); i++) {
+      if(email[i] == '@') {   //VALIDAÇÃO DO EMAIL(É NECESSÁRIO NO MINIMO 1 @)
+        flag = 0;
+        break;
+      }
+      else if(i == strlen(email) - 1)
+        printf("\nDigite um email válido!(deve ter um @)\n");
+    }
   
+  }while(flag);
   // Instância de estudante
   student = new_Student(registry, name, email);
 
@@ -148,15 +189,27 @@ static void removeStudent() {
   char email[SIZE_EMAIL];
   setbuf(stdin, NULL);
 
-  printf("Remover aluno:\n");
-  printf("1. Matricula\n");
-  printf("2. Email\n");
-  printf("0. Cancelar\n");
-
   // TODO: Validar opção
-  printf("Opção: ");
-  scanf("%d", &option);
+  flag = 1; //somente para validação
+  do{
+    
+    printf("Remover aluno:\n");
+    printf("1. Matricula\n");
+    printf("2. Email\n");
+    printf("0. Cancelar\n");
+    printf("Opção: ");
+    scanf("%d", &option);
 
+    system("clear"); //LINUX
+    system("cls"); //WINDOWS
+
+    if(option != 1 && option != 2 && option != 0)
+      printf("Opção inválida! (Digite as opções disponiveis no menu)\n");
+    else
+      break;
+  
+  }while(flag);
+  
   if(option == 1) {
     printf("Digite a matricula: ");
     scanf("%d", &registry);
@@ -180,7 +233,8 @@ static void removeStudent() {
     listStudent_remove(listStudent, student);
     printf("Removido com Sucesso\n");
   } else {
-    printf("Falha ao tentar remover\n");
+    printf("Falha ao tentar remover\nUsuário não encontrado\n");
+    
   }
 
   setbuf(stdin, NULL);
@@ -200,15 +254,26 @@ static void searchStudent () {
   char email[SIZE_EMAIL];
   setbuf(stdin, NULL);
 
-  printf("Buscar aluno:\n");
-  printf("1. Matricula\n");
-  printf("2. Email\n");
-  printf("0. Cancelar\n");
+  flag = 1;
+  do{
+    
+    printf("Buscar aluno:\n");
+    printf("1. Matricula\n");
+    printf("2. Email\n");
+    printf("0. Cancelar\n");
+    printf("Opção: ");
+    scanf("%d", &option);
 
-  // TODO: Validar opção
-  printf("Opção: ");
-  scanf("%d", &option);
+    system("clear"); //LINUX
+    system("cls"); //WINDOWS
 
+    if(option != 1 && option != 2 && option != 0)
+      printf("Opção inválida! (Digite as opções disponiveis no menu)\n");
+    else
+      break;
+
+  }while(flag);
+  
   if(option == 1) {
     printf("Digite a matricula: ");
     scanf("%d", &registry);
