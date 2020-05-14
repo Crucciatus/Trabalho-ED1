@@ -25,9 +25,16 @@ Na pasta **raiz**:
 
 ## Padrões adotados
 
-Todos os métodos que instanciam uma entidade, seja uma Lista ou uma entidade como Student ou Discipline. Seguem o seguinte padrão **new_NomeDaEntidade()**.
+Todos os métodos que instanciam uma entidade, seja uma Lista ou uma entidade como Student ou Discipline. Seguem o seguinte padrão
 
-Para destruir o objeto da memória segue o seguinte padrão **destruct_NomeDaEntidade()**.
+```C
+Entidade new_NomeDaEntidade();
+```
+
+Para destruir o objeto da memória segue o seguinte padrão 
+```C
+void destruct_NomeDaEntidade(Entidade entidade);
+```
 
 > Esse padrão foi de suma importância para nós e foi definido previamente. Facilitou nas rotina
 > de desalocamento de memória e de uso sem conhecer os detalhes de implementação.
