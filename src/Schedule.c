@@ -136,6 +136,7 @@ static void insertStudent() {
   printf("Inserido com seucesso!\n");
 }
 
+// Remover Estudante
 static void removeStudent() {
   // LINUX
   system("clear");
@@ -188,6 +189,53 @@ static void removeStudent() {
   destruct_Student(student);
 }
 
+static void searchStudent () {
+  // LINUX
+  system("clear");
+  // system("cls"); Windows
+
+  Student student = NULL;
+  int option;
+  int registry;
+  char email[SIZE_EMAIL];
+  setbuf(stdin, NULL);
+
+  printf("Buscar aluno:\n");
+  printf("1. Matricula\n");
+  printf("2. Email\n");
+  printf("0. Cancelar\n");
+
+  // TODO: Validar opção
+  printf("Opção: ");
+  scanf("%d", &option);
+
+  if(option == 1) {
+    printf("Digite a matricula: ");
+    scanf("%d", &registry);
+
+    student = listStudent_getStudentByRegistry(listStudent, registry);
+
+  } else if(option == 2){
+    setbuf(stdin, NULL);
+    printf("Digite o email: ");
+    fgets(email, SIZE_EMAIL, stdin);
+    email[strlen(email) - 1] = '\0';
+
+    student = listStudent_getStudentByEmail(listStudent, email);
+  } 
+
+  if(student != NULL) {
+    student_toString(student);
+  } else {
+    printf("Estudante não encontrado!\n");
+  }
+
+  setbuf(stdin, NULL);
+  printf("Pressione enter para continuar...");
+  getchar();
+  destruct_Student(student);
+}
+
 // Mostra todos os Estudantes
 static void showAllStudents() {
   // LINUX
@@ -224,6 +272,9 @@ void start() {
       break;
       case DELETE:
         removeStudent();
+      break;
+      case SEARCH:
+        searchStudent();
       break;
       case SHOW_ALL:
         showAllStudents();
