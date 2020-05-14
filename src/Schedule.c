@@ -6,13 +6,13 @@ static ListStudent listStudent;
 #define SIZE_NAME 40
 #define SIZE_EMAIL 120
 #define SIZE_NAME_DISCIPLINE 80
-#define SIZE_PHONES 15
+#define SIZE_PHONES 20
 
 enum OPTIONS {
   INSERT = 1,
   DELETE,
   SEARCH,
-  SHOW,
+  SHOW_ALL,
   EXIT
 };
 
@@ -137,6 +137,19 @@ static void insertStudent() {
   printf("Inserido com seucesso!\n");
 }
 
+static void showAllStudents() {
+  // LINUX
+  system("clear");
+  // system("cls"); Windows
+
+  setbuf(stdin, NULL);
+  printf("\n==========Todos Alunos==========\n");
+  listStudent_toPrint(listStudent);
+
+  printf("\nPressione enter para continuar...\n");
+  getchar();
+}
+
 void start() {
   
   // Instância a lista
@@ -156,6 +169,9 @@ void start() {
       break;
       case INSERT:
         insertStudent();
+      break;
+      case SHOW_ALL:
+        showAllStudents();
       break;
     }
   } while(keep);
