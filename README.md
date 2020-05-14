@@ -1,113 +1,38 @@
-# 🔥 Trabalho de estrutura de dados 1
 
-**Problema** - Elabore uma programa em C para implementar uma Agenda Eletrônica dos alunos da UEG. Serão armazenados os seguintes dados de cada aluno: Matricula, Nome, Telefone, e-mail, curso, disciplinas e outros que acharem necessários. A Agenda deverá ser implementada através de uma Lista Encadeada. Como um aluno pode ter vários telefones e disciplinas, estes campos também devem ser implementados como uma Lista cada. Colocar todas as funções de manipulação da lista (criar, incluir, excluir, buscar, listar); Trabalhar através de menu. 
+# Trabalho de estrutura de dados 1
 
----
+**Problema** - Elabore uma programa em C para implementar uma Agenda Eletrônica dos alunos da UEG. Serão armazenados os seguintes dados de cada aluno: Matricula, Nome, Telefone, e-mail, curso, disciplinas e outros que acharem necessários. A Agenda deverá ser implementada através de uma Lista Encadeada. Como um aluno pode ter vários telefones e disciplinas, estes campos também devem ser implementados como uma Lista cada. Colocar todas as funções de manipulação da lista (criar, incluir, excluir, buscar, listar); Trabalhar através de menu.
 
-## Padronização
+## Disclaimer
 
-> Definir lingua padrão: Inglês ou português para a nomeação das variáveis
-- [x] Inglês   
-- [ ] Português 
+**Sistema operacional:**  Ubuntu 20.04
+**Copilador:** gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2) 
 
- 1. Arquivo de implementação ".c" e arquivo de interface ".h"
- 2. Padrão de nome de variáveis: **camelCase**
- 3. Padrão para nome de funções: 
-	- 3.1. Função de criação: **new_NomeEntidade**
-	- 3.2 Função de destruição: **destruct_NomeEntidade**
-	- 3.3 Função da entidade especifica:  **nomeEntidade_nomeFunção**, ex: aluno_inserirNumero
-4. Espaçamento de 2 tabstop
-5. Nunca alterar o mesmo arquivo para não dar conflito na hora de mesclar.
-6. Sempre informar o que está alterando e fazendo
-7. Sempre solicitar revisão do código (ambos)
-8. Só mesclar códigos revisados por todos.
- 
----
+Caso encontre problemas para compilar por causa da diferença de sistemas operacionais, segue o vídeo usando programa [aqui](https://youtube.com/).
 
-## Glossário
+Decidimos por fazer o projeto o mais modularizado o possível. Como foi feito remotamente, buscamos essa abordagem para ter o melhor aproveitamento de ambos.
 
-|Termo| Descrição |
-|--|--|
-| Incluir | Adicionar a instância de alguma entidade em uma lista  |
-| Alocar | usar função malloc |
-| Destruir | usar função free |
+Na pasta **libs** estão os arquivos headers que representam a nossa interface pública, funções que podem ser invocadas e usadas.
 
----
+Na pasta **src** estão os arquivos concretos de implementação das interfaces. Funções e variáveis marcadas com __static__ são privadas do arquivo ".c" e só podem ser acessadas dentro do escopo do arquivo.
 
-## Requisitos funcionais
+Na pasta **objs** estão os arquivos ".o" gerados no processo do compilação.
 
-> Sinta-se a vontade para alterar tudo
+Na pasta **raiz**:
+1. main.c - Entry point que invoca os métodos **start()** e **stop()**
+2. Makefile - Rotina de compilação pelo **make**
+3. program - Binário gerado
 
-|RF| Descrição |
-|--|--|
-| Manipular agenda | Criar uma agenda e destruir  |
-| Manipular aluno | Criar, incluir, excluir e buscar  |
-| Manipular aluno-telefone | Criar, incluir, excluir e buscar  |
-| Manipular aluno-disciplina | Criar, incluir, excluir e buscar  |
+## Padrões adotados
 
----
+Todos os métodos que instanciam uma entidade, seja uma Lista ou uma entidade como Student ou Discipline. Seguem o seguinte padrão **new_NomeDaEntidade()**.
 
-## Requisitos não funcionais
+Para destruir o objeto da memória segue o seguinte padrão **destruct_NomeDaEntidade()**.
 
-> Sinta-se a vontade para alterar tudo
+> Esse padrão foi de suma importância para nós e foi definido previamente. Facilitou nas rotina
+> de desalocamento de memória e de uso sem conhecer os detalhes de implementação.
 
-|RNF| Descrição |
-|--|--|
-| Alocar agenda | Retornar uma referência para a agenda |
-| Alocar aluno | Retornar uma referência de aluno para ser **incluída** na lista |
-| Alocar telefone | Retornar uma referência de telefone para ser **incluída** em um aluno |
-| Alocar disciplina | Retornar uma referência de disciplina para ser **incluída** em um aluno |
-| Destruir disciplina, telefone, aluno e agenda |
+## Autores
 
----
-
-## Entidades
-
-> Sinta-se a vontade para alterar tudo
-
-### 📅 Agenda
-
-Na estrutura agenda é onde a manipulação de cada __aluno__ pode ser feita.
-Os alunos vão estar contidos dentro da estrutura que representa uma __agenda__.
-* Deve ser possível alterar os dados de um aluno.
-* Deve ser possível excluir um aluno especifico.
-* Deve ser possível incluir um novo aluno novo.
-* Deve ser possível listar todos os alunos.
-* Deve ser possível buscar um aluno pela matricula.
-* Deve ser possível buscar uma lista de alunos pela disciplina (feature).
-
-> Uma agenda tem um ou muitos alunos
-
-### 🧑‍🎓 Aluno 
-
-O aluno é a entidade principal, as operações vão ser feitas alterando a estrutura aluno.  
-
-| Campo | Tipo |
-|--|--|
-|Matricula  | Integer  |
-|Nome  | String  |
-|Telefone  | String  |
-|E-mail  | String  |
-|Disciplina  | String  |
-
-* Um aluno pode ter um ou vários números de telefone.
-* Um aluno pode estar matriculado em uma ou mais disciplinas.
-
-### 📱 Telefone
-
-O telefone é uma estrutura com  DDD e número.
-* Deve ser possível retornar um número aplicando a seguinte mascara: (DDD) 9-9999-9999
-
-### 📚 Disciplina
-
-|Campo| Tipo |
-|--|--|
-| Nome da disciplina | String |
-
---- 
-
- ## Regras de negócio
-
-A definir com o @Cruciatus
-
----
+|[<img src="https://avatars1.githubusercontent.com/u/45038312?s=400&u=07ff6cd97eb80c87f7c67da987da219b87ddb615&v=4" width="115"><br><sub>@Crucciatus</sub>](https://github.com/Crucciatus) | [<img src="https://avatars3.githubusercontent.com/u/51142291?s=400&u=b376313fa7a778c5b3ad71c86911e78654cf9812&v=4" width="115"><br><sub>@Rod1Andrade</sub>](https://github.com/Rod1Andrade) |
+|:-:|:-:|
