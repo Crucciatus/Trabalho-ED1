@@ -9,7 +9,7 @@
 
 **Compilador:** gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2) 
 
-Caso encontre problemas para compilar por causa da diferença de sistemas operacionais, segue o vídeo usando programa [aqui](https://youtube.com/).
+Caso encontre problemas para compilar por causa da diferença de sistemas operacionais, segue o vídeo usando programa [aqui](https://www.youtube.com/watch?v=UcjQTm4Ub24).
 
 Decidimos por fazer o projeto o mais modularizado o possível. Como foi feito remotamente, buscamos essa abordagem para ter o melhor aproveitamento de ambos.
 
