@@ -240,7 +240,7 @@ static void removeStudent() {
   setbuf(stdin, NULL);
   printf("Pressione enter para continuar...");
   getchar();
-  destruct_Student(student);
+  //destruct_Student(student);
 }
 
 static void searchStudent () {
